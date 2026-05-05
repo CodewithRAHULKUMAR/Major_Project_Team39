@@ -28,28 +28,28 @@ Metrics:
 5.	Engineered Features: 20+ 
 ________________________________________
 Key Insights:
-•	Delay Prediction:
+1. Delay Prediction:
 Machine learning models can accurately predict whether a train will be delayed and estimate delay duration. 
-•	Congestion Patterns:
+2. Congestion Patterns:
 High congestion is observed in sections with limited capacity and higher train density. 
-•	Impact of Train Priority:
+3. Impact of Train Priority:
 Higher priority trains experience fewer delays due to scheduling advantages. 
-•	Traffic Flow Optimization:
+4. Traffic Flow Optimization:
 AI-based recommendations help reduce conflicts and improve overall network efficiency. 
 ________________________________________
 Technologies Used:
-•	Programming Language: Python 
-•	Libraries: Pandas, NumPy, Scikit-learn 
-•	Machine Learning Models: Logistic Regression, Random Forest, XGBoost 
-•	Backend: Flask 
-•	Database: MySQL 
-•	Frontend: HTML, CSS, JavaScript 
-•	Visualization: Chart.js 
+1.	Programming Language: Python 
+2.	Libraries: Pandas, NumPy, Scikit-learn 
+3.	Machine Learning Models: Logistic Regression, Random Forest, XGBoost 
+4.	Backend: Flask 
+5.  Database: MySQL 
+6. 	Frontend: HTML, CSS, JavaScript 
+7.	Visualization: Chart.js 
 ________________________________________
 Outcome:
 This system enables railway operators and analysts to:
-•	Predict delays and congestion in advance 
-•	Improve decision-making using data-driven insights 
-•	Optimize train scheduling and routing 
-•	Detect and resolve conflicts efficiently 
-•	Enhance overall railway network performance
+1.	Predict delays and congestion in advance 
+2.	Improve decision-making using data-driven insights 
+3.	Optimize train scheduling and routing 
+4.	Detect and resolve conflicts efficiently 
+5.	Enhance overall railway network performance
