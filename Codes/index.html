@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RailMind AI — Train Delay Prediction & Decision Support</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="header-brand">
+        <div class="logo">🚆</div>
+        <h1>RailMind AI</h1>
+        <span class="tag">v2.0</span>
+    </div>
+    <div class="header-status">
+        <div class="status-dot"></div>
+        <span class="status-label">Awaiting Data</span>
+    </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav class="nav-tabs">
+    <button class="nav-tab active" data-page="overview">📊 Overview</button>
+    <button class="nav-tab" data-page="network">🗺️ Network Map</button>
+    <button class="nav-tab" data-page="analysis">🔍 Train Analysis</button>
+    <button class="nav-tab" data-page="conflicts">⚠️ Conflicts <span class="badge">0</span></button>
+    <button class="nav-tab" data-page="simulation">🧪 Simulation</button>
+    <button class="nav-tab" data-page="performance">📊 Performance</button>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+    <!-- ===================== PAGE 1: OVERVIEW ===================== -->
+    <div class="page active" id="page-overview">
+        <div class="section-header">
+            <h2>📊 System Overview</h2>
+            <p>RailMind AI — data loaded automatically, models trained, system active</p>
+        </div>
+
+        <div id="overview-loading" style="text-align:center;padding:3rem">
+            <div class="spinner" style="margin:0 auto 1rem"></div>
+            <div style="color:var(--text-secondary)">Initializing system...</div>
+        </div>
+
+        <div id="overview-results" style="display:none"></div>
+    </div>
+
+    <!-- ===================== PAGE 2: NETWORK ===================== -->
+    <div class="page" id="page-network">
+        <div class="section-header">
+            <h2>🗺️ Railway Network Overview</h2>
+            <p>Real-time block occupancy, train positions, and conflict visualization</p>
+        </div>
+        <div id="block-legend"></div>
+        <div class="block-map" id="block-map">
+            <div class="empty-state" style="width:100%"><div class="icon">🗺️</div><h3>Upload data to see network</h3></div>
+        </div>
+        <div id="block-details" style="margin-top:1.25rem"></div>
+    </div>
+
+    <!-- ===================== PAGE 3: TRAIN ANALYSIS ===================== -->
+    <div class="page" id="page-analysis">
+        <div class="section-header">
+            <h2>🔍 Train Analysis Dashboard</h2>
+            <p>Select a train to view predictions, conflicts, and AI recommendations</p>
+        </div>
+        <div class="card" style="margin-bottom:1.5rem">
+            <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap">
+                <div style="flex:1;min-width:250px">
+                    <label class="form-label">Select Train</label>
+                    <select class="form-select" id="train-select">
+                        <option value="">— Upload data first —</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" onclick="analyzeTrain()">🔍 Analyze</button>
+            </div>
+        </div>
+        <div id="train-analysis-results"></div>
+    </div>
+
+    <!-- ===================== PAGE 4: CONFLICTS ===================== -->
+    <div class="page" id="page-conflicts">
+        <div class="section-header">
+            <h2>⚠️ Conflict Detection & Resolution</h2>
+            <p>Detected conflicts with AI-powered resolution recommendations</p>
+        </div>
+        <div id="conflicts-content">
+            <div class="empty-state"><div class="icon">⚠️</div><h3>Upload data to detect conflicts</h3></div>
+        </div>
+    </div>
+
+    <!-- ===================== PAGE 5: SIMULATION ===================== -->
+    <div class="page" id="page-simulation">
+        <div class="section-header">
+            <h2>🧪 What-If Simulation</h2>
+            <p>Simulate changes and see their impact on the railway system</p>
+        </div>
+        <div class="card" style="margin-bottom:1.5rem">
+            <div class="card-header"><div class="card-title">⚙️ Configure Scenario</div></div>
+            <div class="grid-3">
+                <div>
+                    <label class="form-label">Train</label>
+                    <select class="form-select" id="sim-train"><option value="">Select Train</option></select>
+                </div>
+                <div>
+                    <label class="form-label">Extra Halt (min)</label>
+                    <input type="number" class="form-input" id="sim-minutes" placeholder="0" min="0" max="30" value="0">
+                </div>
+                <div>
+                    <label class="form-label">Action Type</label>
+                    <select class="form-select" id="sim-action">
+                        <option value="">No Action</option>
+                        <option value="halt">Halt Train</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="runWhatIf()" style="margin-top:1rem">🚀 Run Simulation</button>
+        </div>
+        <div id="sim-results"></div>
+    </div>
+
+    <!-- ===================== PAGE 6: PERFORMANCE ===================== -->
+    <div class="page" id="page-performance">
+        <div class="section-header">
+            <h2>📊 Performance Analytics</h2>
+            <p>Key performance indicators and system analytics</p>
+        </div>
+        <div id="performance-content">
+            <div class="empty-state"><div class="icon">📊</div><h3>Upload data to view analytics</h3></div>
+        </div>
+    </div>
+
+</main>
+
+<!-- LOADING OVERLAY -->
+<div class="loading-overlay" id="loading-overlay">
+    <div class="spinner"></div>
+    <div class="loading-text">Processing...</div>
+</div>
+
+<script src="/static/scripts.js"></script>
+</body>
+</html>
